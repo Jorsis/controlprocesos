@@ -1,0 +1,104 @@
+<html>
+<head>
+<style type="text/css">
+	body,td {
+	color: #000000;font-family:tahoma, verdana, helvetica; font-size: 11px; font-weight:none;
+		scrollbar-face-color: #ffffff;
+		scrollbar-shadow-color: #006699;
+		scrollbar-base-color : #ffffff;
+		scrollbar-highlight-color: #006699;
+		scrollbar-3dlight-color: #ffffff;
+		scrollbar-darkshadow-color: #ffffff;
+		scrollbar-track-color: #f8f8f8;
+		scrollbar-arrow-color: #006699;
+	}
+	a { color:#006699; text-decoration:none; font-weight:bold;}
+	a:hover { color:#000000; text-decoration:none; font-weight:bold;}
+	a:active { color:#000000; text-decoration:none; font-weight:bold ;}
+</style>
+</head>
+
+<body bgcolor='#000000' marginheight='0' marginwidth='0' topmargin='0' leftmargin='0'>
+<br><br><center>
+    <table border='0' cellspacing='5' cellpadding='5' width='70%' bgcolor='#f1f1ed'>
+		<tr>
+			<td valign='top' align='center'>
+				<br><big>How to use the xpMenu Class</big>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				<br><strong>&nbsp;&nbsp;&nbsp;1. How to use the xpMenu Class</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to the manual of the class xpMenu. To use this class is very simple. With only some lines of code you it will have in its site this practical and pretty menu. 
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				<br><br><strong>&nbsp;&nbsp;&nbsp;2. What you have to do:</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In first place you must copy the archives to your server. :P Later you are enough to insert the following codes in the pages where you want that the menu appears:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initially, it makes the inclusion of the class and object creation: <br/>
+				<br/>
+				&lt;?<br/>
+				require (“xpMenu.class.php”); <br/>
+				$xpmenu = new xpMenu (); <br/>
+				?&gt;<br/>
+				<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Later, inside of tag &lt;head&gt; inserts the following code: <br/>
+				<br/>
+				&lt;?<br/>
+				echo $xpmenu->javaScript (); <br/>
+				echo $xpmenu->style (); <br/>
+				?&gt;<br/>
+				<br/>
+				In any place of your code, create the menu of the following form: <br/>
+				<br/>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create a menu: <br/>
+				<br/>
+				&lt;?<br/>
+				$xpmenu->addMenu (“menu1”); <br/>
+				?&gt;<br/>
+				<br/>
+				<br/><i>Note: the function addMenu have only one parameter. It's short_name, is the short name of menu.</i><br/>
+				<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create a category: <br/>
+				<br/>
+				&lt;?<br/>
+				$xpmenu->addCategory (“menusup1”, “Google Links”, “icons/google.gif”, “menu1”); <br/>
+				?&gt;<br/>
+				<br/>
+				<br/><i>Note: the function addCategory have four parameters. The first, a_name, is the short name of category. You can use any name, except by names with spaces or special characters. The second, name, is the name that will appear on menu. The third, image, is the image that will appear on menu (use 20X20 image). The last is the menu short name.</i><br/>
+				<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create an option:<br/>
+				<br/>
+				&lt;?<br/>
+				$xpmenu->addOption (“google”, “Google”, “icons/google.gif”, “http://www.google.com”, “menusup1”, “menu1”); <br/>
+				?&gt;<br/>
+				<br/>
+				<br/><i>Note: the function addOption have six parameters. The first, a_name, is the short name of option. You can use any name, except by names with spaces or special characters. The second, name, is the name that will appear on menu. The third, image, is the image that will appear on menu (use 20X20 image). The next is the link, that will be called by click on menu opotion and the number five is the name of the category of the option (be sure of that category exists). The last is the menu short name.</i><br/>
+				<br/><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And to finalize, insert this code in the place where you want to the menu appears (must be after menu creation):<br/>
+				<br/>
+				&lt;?<br/>
+				echo $xpmenu->mountMenu();<br/>
+				?&gt;<br/>
+				<br/><br/>
+				Very simple!<br/><br/>
+				Enéas Gesing
+				
+			</td>
+		</tr>		
+</table><br/>
+<br/>
+<br/>
+</center>
+</body>
+</html>

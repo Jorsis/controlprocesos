@@ -1,0 +1,79 @@
+<html>
+<head>
+<style type="text/css">
+	body,td {
+	color: #000000;font-family:tahoma, verdana, helvetica; font-size: 11px; font-weight:none;
+		scrollbar-face-color: #ffffff;
+		scrollbar-shadow-color: #006699;
+		scrollbar-base-color : #ffffff;
+		scrollbar-highlight-color: #006699;
+		scrollbar-3dlight-color: #ffffff;
+		scrollbar-darkshadow-color: #ffffff;
+		scrollbar-track-color: #f8f8f8;
+		scrollbar-arrow-color: #006699;
+	}
+	a { color:#006699; text-decoration:none; font-weight:bold;}
+	a:hover { color:#000000; text-decoration:none; font-weight:bold;}
+	a:active { color:#000000; text-decoration:none; font-weight:bold ;}
+</style>
+</head>
+
+<body bgcolor='#000000' marginheight='0' marginwidth='0' topmargin='0' leftmargin='0'>
+<br><br><center>
+    <table border='0' cellspacing='5' cellpadding='5' width='70%' bgcolor='#f1f1ed'>
+		<tr>
+			<td valign='top' align='center'>
+				<br><big>How to use targets on XP Menu Class</big>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks for use the class XP Menu. If your application uses frames, you may need use targets. There's two methods for implement target on XP Menu Generator Class: 
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				<br><strong>&nbsp;&nbsp;&nbsp;1. Using &lt;base target='your_target'&gt;</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method is very simple, on page that contains the menu, add this code &lt;base target='your_target'&gt; between &lt;head&gt; and &lt;/head&gt; tags<br/>
+		</tr>
+		<tr>
+			<td valign='top'>
+				<br><strong>&nbsp;&nbsp;&nbsp;2. Making some alterations on class:</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign='top'>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method is very simple too, and is recommended in cases where the application uses more than one targets<br/>
+		<br/>
+				On file <b>xpMenu.class.php:</b><br/><br/>
+				On line 191:<br/><br/>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change this:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$array = array("name" => $name, "image" => $image, "link" => $link);<br/>
+				<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By this:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$array = array("name" => $name, "image" => $image, "link" => $link, <font color="red">"target" => $target</font>);<br/>
+				<br/>
+				On line 216:<br/><br/>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change this:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$return .= '&lt;div class="option" onmouseover="this.style.background=\''.$this->submenu_onmouseover.'\'" onmouseout="this.style.background=\''.$this->submenu_onmouseout.'\'"&gt;&lt;a href="'.$menu[$key]['submenus'][$key_s]['link'].'"&gt;&lt;img style="vertical-align: middle" width=16 height=16 src="'.$menu[$key]['submenus'][$key_s]['image'].'" border=0 hspace=3&gt;'.$menu[$key]['submenus'][$key_s]['name'].'&lt;/a&gt;&lt;/div&gt;';<br/>
+				<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By this:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$return .= '&lt;div class="option" onmouseover="this.style.background=\''.$this->submenu_onmouseover.'\'" onmouseout="this.style.background=\''.$this->submenu_onmouseout.'\'"&gt;&lt;a <font color="red">target="'.$menu[$key]['submenus'][$key_s]['target'].'"</font> href="'.$menu[$key]['submenus'][$key_s]['link'].'"&gt;&lt;img style="vertical-align: middle" width=16 height=16 src="'.$menu[$key]['submenus'][$key_s]['image'].'" border=0 hspace=3&gt;'.$menu[$key]['submenus'][$key_s]['name'].'&lt;/a&gt;&lt;/div&gt;';<br/>				
+<br/><br/>
+Thanks to Dominique &lt;dominique at arrea dot com&gt;
+<br/><br/>
+Enéas Gesing
+     		</td>
+		</tr>		
+</table><br/>
+<br/>
+<br/>
+</center>
+</body>
+</html>
