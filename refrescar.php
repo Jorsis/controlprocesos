@@ -1,4 +1,5 @@
 <?
 header("Location: seguimiento.php");
 
+
 ?>
